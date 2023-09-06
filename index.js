@@ -149,6 +149,36 @@ const music = [
     artist: "LOS REDONDOS",
     src: "./music/UN POCO DE AMOR FRANCES - LOS REDONDOS.mp3",
   },
+  {
+    name: "CANGURO",
+    artist: "WOS",
+    src: "./music/CANGURO - WOS.mp3",
+  },
+  {
+    name: "GUERRILLA RADIO ",
+    artist: "RATM",
+    src: "./music/GUERRILLA RADIO  - RATM.mp3",
+  },
+  {
+    name: "IF IT AIN'T FUNKY BACK IT ",
+    artist: "SOOPASOUL",
+    src: "./music/IF IT AIN'T FUNKY BACK IT UP - SOOPASOUL.mp3",
+  },
+  {
+    name: "MERCEDEZ BENZ",
+    artist: "JANIS JOPLIN",
+    src: "./music/MERCEDEZ BENZ - JANIS JOPLIN.mp3",
+  },
+  {
+    name: "PELOTUDA",
+    artist: "DILLOM",
+    src: "./music/PELOTUDA - DILLOM.mp3",
+  },
+  {
+    name: "TU VENENO",
+    artist: "NATALIA OREIRO",
+    src: "./music/TU VENENO - NATALIA OREIRO.mp3",
+  },
 ];
 
 const bellSoundHref = "https://falsofacu.github.io/stand-pad-personal/music/BELL.mp3";
