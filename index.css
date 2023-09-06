@@ -1,0 +1,205 @@
+:root {
+  --yellow: #EECB59;
+  --pink: #DF53AC;
+  --blue: #50B0F7;
+  --blue-2 : #2f465f;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #121223;
+  color: white;
+  overflow-x: hidden;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+button {
+  all: unset;
+  outline: revert;
+}
+
+select {
+  height: 36px;
+  width: 80%;
+  max-width: 500px;
+  font-weight: bold;
+}
+
+#heading {
+  min-height: 150px;
+}
+
+/* Settings */
+#app-settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: var(--blue-2);
+  padding-bottom: 15px;
+  border-radius: 6px;
+}
+
+#timer-setting select{
+  width: max-content;
+  align-items: center;
+  text-align: center;
+}
+
+#select-music-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#select-music {
+  width: max-content;
+}
+
+/* Buttons */
+#kit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  position: relative;
+  min-height: 100px;
+  max-height: 60vh;
+  margin-top: 10px;
+}
+
+.btn-pad {
+  width: 30vw;
+  height: 73vh;
+  max-height: 80vh;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-pad:hover {
+  outline: 1px solid white;
+}
+
+.btn-pad:active {
+  transform: scale(0.98);
+}
+
+#btn-music {
+  position: relative;
+  background-color: var(--yellow);
+}
+
+#btn-bell {
+  background-color: var(--pink);
+}
+
+#btn-shot {
+  background-color: var(--blue);
+}
+
+.btn-text {
+  filter: drop-shadow(0 0 2px black);
+}
+
+/** Animations */
+
+.loading-anim {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+}
+
+.btn-pad:active .loading-anim {
+  width: 100%;
+}
+
+#btn-music:not(:active) .loading-anim {
+  transition: width 60s linear;
+}
+
+#btn-bell:not(:active) .loading-anim {
+  transition: width 1.6s linear;
+}
+
+#btn-shot:not(:active) .loading-anim {
+  transition: width .3s linear;
+}
+
+
+@keyframes music-progress {
+  0% {
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-load) 100%);
+  }
+  100% {
+    background: linear-gradient(var(--yellow) 100%, var(--yellow-load) 100%);
+  }
+}
+
+@keyframes bell-progress {
+  
+}
+
+@keyframes shot-progress {
+  
+}
+
+/** Media Querys */
+@media (max-width: 1220px) {
+
+  #kit {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .btn-pad {
+    max-width: unset;
+    width: 80vw;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 700px) {
+  #heading {
+    min-height: 310px;
+    margin-bottom: 10px;
+  }
+  #app-settings {
+    flex-direction: column;
+    width: 80vw;
+  }
+}
