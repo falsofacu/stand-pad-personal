@@ -152,32 +152,32 @@ const music = [
   {
     name: "CANGURO",
     artist: "WOS",
-    src: "./music/CANGURO - WOS.mp3",
+    src: "./music/exclusive/CANGURO - WOS.mp3",
   },
   {
     name: "GUERRILLA RADIO ",
     artist: "RATM",
-    src: "./music/GUERRILLA RADIO  - RATM.mp3",
+    src: "./music/exclusive/GUERRILLA RADIO  - RATM.mp3",
   },
   {
     name: "IF IT AIN'T FUNKY BACK IT ",
     artist: "SOOPASOUL",
-    src: "./music/IF IT AIN'T FUNKY BACK IT UP - SOOPASOUL.mp3",
+    src: "./music/exclusive/IF IT AIN'T FUNKY BACK IT UP - SOOPASOUL.mp3",
   },
   {
     name: "MERCEDEZ BENZ",
     artist: "JANIS JOPLIN",
-    src: "./music/MERCEDEZ BENZ - JANIS JOPLIN.mp3",
+    src: "./music/exclusive/MERCEDEZ BENZ - JANIS JOPLIN.mp3",
   },
   {
     name: "PELOTUDA",
     artist: "DILLOM",
-    src: "./music/PELOTUDA - DILLOM.mp3",
+    src: "./music/exclusive/PELOTUDA - DILLOM.mp3",
   },
   {
     name: "TU VENENO",
     artist: "NATALIA OREIRO",
-    src: "./music/TU VENENO - NATALIA OREIRO.mp3",
+    src: "./music/exclusive/TU VENENO - NATALIA OREIRO.mp3",
   },
 ];
 
