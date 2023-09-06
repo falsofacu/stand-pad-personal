@@ -42,6 +42,10 @@ select {
   font-weight: bold;
 }
 
+.exclusive-option {
+  background-color: #f0d57e;
+}
+
 #heading {
   min-height: 150px;
 }
