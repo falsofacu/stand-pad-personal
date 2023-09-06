@@ -12,7 +12,6 @@ async function loadAudioFile(url) {
   return await audioContext.decodeAudioData(arrayBuffer);
 }
 
-
 const tryPlayMusic = async (sound) => {
   try {
     const audioBuffer = await loadAudioFile(sound);
@@ -22,7 +21,7 @@ const tryPlayMusic = async (sound) => {
     musicSourceNode.start();
     musicPlaying = true;
   } catch (error) {
-    console.error('Error loading or playing music:', error);
+    console.error("Error loading or playing music:", error);
   }
 };
 
@@ -35,7 +34,7 @@ const tryPlaySFX = async (sound) => {
     sfxSourceNode.connect(audioContext.destination);
     sfxSourceNode.start();
   } catch (error) {
-    console.error('Error loading or playing sound effect:', error);
+    console.error("Error loading or playing sound effect:", error);
   }
 };
 
@@ -63,97 +62,97 @@ const music = [
   {
     name: "BERZERK",
     artist: "EMINEM",
-    src: "./music/BERZERK - EMINEM.mp3"
+    src: "./music/BERZERK - EMINEM.mp3",
   },
   {
     name: "BLACK BETTY",
     artist: "RAM JAM",
-    src: "./music/BLACK BETTY - RAM JAM.mp3"
+    src: "./music/BLACK BETTY - RAM JAM.mp3",
   },
   {
     name: "CAN'T STOP",
     artist: "RHCP",
-    src: "./music/CAN'T STOP - RHCP.mp3"
+    src: "./music/CAN'T STOP - RHCP.mp3",
   },
   {
     name: "CELEBRITY SKIN",
     artist: "HOLE",
-    src: "./music/CELEBRITY SKIN - HOLE.mp3"
+    src: "./music/CELEBRITY SKIN - HOLE.mp3",
   },
   {
     name: "CHISTE",
     artist: "EL KUELGUE",
-    src: "./music/CHISTE - EL KUELGUE.mp3"
+    src: "./music/CHISTE - EL KUELGUE.mp3",
   },
   {
     name: "DELE TIEMPO",
     artist: "EL KUELGUE",
-    src: "./music/DELE TIEMPO - EL KUELGUE.mp3"
+    src: "./music/DELE TIEMPO - EL KUELGUE.mp3",
   },
   {
     name: "FANKY",
     artist: "CHARLY GARCÍA",
-    src: "./music/FANKY - CHARLY GARCÍA.mp3"
+    src: "./music/FANKY - CHARLY GARCÍA.mp3",
   },
   {
     name: "GET ON UP",
     artist: "JAMES BROWN",
-    src: "./music/GET ON UP - JAMES BROWN.mp3"
+    src: "./music/GET ON UP - JAMES BROWN.mp3",
   },
   {
     name: "IMMIGRANT SONG",
     artist: "LED ZEPPELIN",
-    src: "./music/IMMIGRANT SONG - LED ZEPPELIN.mp3"
+    src: "./music/IMMIGRANT SONG - LED ZEPPELIN.mp3",
   },
   {
     name: "JUMP AROUND",
     artist: "HOUSE OF PAIN",
-    src: "./music/JUMP AROUND - HOUSE OF PAIN.mp3"
+    src: "./music/JUMP AROUND - HOUSE OF PAIN.mp3",
   },
   {
     name: "PARANOIA POP",
     artist: "BANDALOS CHINOS",
-    src: "./music/PARANOIA POP - BANDALOS CHINOS.mp3"
+    src: "./music/PARANOIA POP - BANDALOS CHINOS.mp3",
   },
   {
     name: "PEACE FROG",
     artist: "THE DOORS",
-    src: "./music/PEACE FROG - THE DOORS.mp3"
+    src: "./music/PEACE FROG - THE DOORS.mp3",
   },
   {
     name: "PEOPLE GET UP AND DRIVE YOUR FUNKY SOUL",
     artist: "JAMES BROWN",
-    src: "./music/PEOPLE GET UP AND DRIVE YOUR FUNKY SOUL - JAMES BROWN.mp3"
+    src: "./music/PEOPLE GET UP AND DRIVE YOUR FUNKY SOUL - JAMES BROWN.mp3",
   },
   {
     name: "QUE VAS A HACER TAN SOLA HOY",
     artist: "VIEJAS LOCAS",
-    src: "./music/QUE VAS A HACER TAN SOLA HOY - VIEJAS LOCAS.mp3"
+    src: "./music/QUE VAS A HACER TAN SOLA HOY - VIEJAS LOCAS.mp3",
   },
   {
     name: "ROCK AND ROLL YO",
     artist: "CHARLY GARCÍA",
-    src: "./music/ROCK AND ROLL YO - CHARLY GARCÍA.mp3"
+    src: "./music/ROCK AND ROLL YO - CHARLY GARCÍA.mp3",
   },
   {
     name: "THE SEED",
     artist: "THE ROOTS",
-    src: "./music/THE SEED - THE ROOTS.mp3"
+    src: "./music/THE SEED - THE ROOTS.mp3",
   },
   {
     name: "TNT",
     artist: "AC/DC",
-    src: "./music/TNT - ACDC.mp3"
+    src: "./music/TNT - ACDC.mp3",
   },
   {
     name: "UN POCO DE AMOR FRANCES",
     artist: "LOS REDONDOS",
-    src: "./music/UN POCO DE AMOR FRANCES - LOS REDONDOS.mp3"
-  }
+    src: "./music/UN POCO DE AMOR FRANCES - LOS REDONDOS.mp3",
+  },
 ];
 
-const bellSoundHref = "https://falsofacu.github.io/stand-pad/music/BELL.mp3"
-const shotSoundHref = "https://falsofacu.github.io/stand-pad/music/SHOT.mp3"
+const bellSoundHref = "https://falsofacu.github.io/stand-pad-personal/music/BELL.mp3";
+const shotSoundHref = "https://falsofacu.github.io/stand-pad-personal/music/SHOT.mp3";
 
 const timerSwitch = document.getElementById("check");
 let timerSwitchValue = timerSwitch.checked;
@@ -173,80 +172,110 @@ const btnBell = document.getElementById("btn-bell");
 const btnShot = document.getElementById("btn-shot");
 
 //* Update vars when necesary
-// Timer on/off
+// Update timer state (on/off)
+let timerEnabled = false;
 timerSwitch.addEventListener("change", () => {
   timerSwitchValue = timerSwitch.checked;
-})
+  //! TAKE THIS OUT OF HERE
+  timerEnabled ? (document.getElementById("select-time").disabled = true) : document.getElementById("select-time").removeAttribute("disabled");
+  timerEnabled = !timerEnabled;
+});
 
-// Timer time amount 
-timerTime.addEventListener("change" , () => {
+// Update timer time amount
+timerTime.addEventListener("change", () => {
   timerValueSeconds = timerTime.value;
   console.log(timerValueSeconds);
-})
+});
 
-// Selected song
+// Update Selected song
 selectMusic.addEventListener("change", () => {
   currentSong = music[Number(selectMusic.value)];
-})
+});
+
+//* Seconds to digital
+const secondsToDigital = (time) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+  return formattedMinutes + ":" + formattedSeconds;
+};
 
 //* Change emoji on click and reset after transition ends
 let changeButtonText = (element, text) => {
   let content = element.getElementsByClassName("btn-text");
   content[0].innerHTML = text;
-}
+};
 
 //* Change timer transition duration
 const changeTransitionDuration = (element, duration) => {
-  element.style.transitionDuration = `${duration}s`
-}
+  element.style.transitionDuration = `${duration}s`;
+};
 
-//* Play SFX 
+//* Play SFX
 const playSFX = (sfx) => {
   tryPlaySFX(sfx);
 };
 
 //* Button events
-//Music
+// Music btn events
 btnMusic.addEventListener("click", () => {
   if (musicPlaying) {
     stopMusic();
     changeButtonText(btnMusic, "🎵");
     //Reset transition
-    document.getElementsByClassName("loading-anim")[0].style.transitionDuration= "0s";
-  }
-  else {
+    document.getElementsByClassName("loading-anim")[0].style.transitionDuration = "0s";
+  } else {
     tryPlayMusic(currentSong.src);
     changeButtonText(btnMusic, "🛑");
   }
-  
-})
+});
 
 btnMusic.addEventListener("transitionend", () => {
   changeButtonText(btnMusic, "🎵");
-})
+});
 
-//Bell
+// Bell btn events
+let timerOn = false;
+let timerCountInterval;
+let timerSoundTimeout;
+
 btnBell.addEventListener("click", () => {
   const loadingElement = document.getElementsByClassName("loading-anim")[1];
-  if(timerSwitchValue) {
-    changeTransitionDuration(loadingElement, timerValueSeconds);
-    changeButtonText(btnBell, "⏱️");
-    setTimeout(() => {
+  if (timerOn) {
+    clearInterval(timerCountInterval);
+    clearTimeout(timerSoundTimeout);
+    changeButtonText(btnBell, "🔔");
+    timerOn = false;
+    //Reset transition
+    document.getElementsByClassName("loading-anim")[1].style.transitionDuration = "0s";
+  } else {
+    if (timerSwitchValue) {
+      let timeLeft = timerValueSeconds;
+      changeTransitionDuration(loadingElement, timerValueSeconds);
+      changeButtonText(btnBell, secondsToDigital(timeLeft));
+      timerCountInterval = setInterval(() => {
+        timeLeft--;
+        changeButtonText(btnBell, secondsToDigital(timeLeft));
+      }, 1000);
+
+      timerSoundTimeout = setTimeout(() => {
+        clearInterval(timerCountInterval);
+        tryPlaySFX(bellSoundHref);
+      }, timerValueSeconds * 1000);
+
+      timerOn = true;
+    } else {
       tryPlaySFX(bellSoundHref);
-    }, timerValueSeconds * 1000)
+    }
   }
-  else {
-    tryPlaySFX(bellSoundHref);
-  }
-})
+});
 
 btnBell.addEventListener("transitionend", () => {
   changeButtonText(btnBell, "🔔");
-})
+});
 
-//Shot 
+//Shot btn events
 btnShot.addEventListener("click", () => {
   tryPlaySFX(shotSoundHref);
-})
-
-
+});
